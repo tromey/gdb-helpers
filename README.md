@@ -29,6 +29,8 @@ Here `helpers` is the directory where I did the `git clone`.
 * `hier CLASS`.  Print the class hierarchy of a class, one line per
   base class.
 
+* `multi`.  Enable multi-inferior mode.
+
 ## New functions
 
 * `$_typeof(EXP)`.  Evaluates EXP and then returns a string
