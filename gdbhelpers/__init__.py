@@ -6,3 +6,4 @@ import gdbhelpers.typeof
 import gdbhelpers.hierarchy
 import gdbhelpers.ecomm
 import gdbhelpers.multi
+import gdbhelpers.emacs
