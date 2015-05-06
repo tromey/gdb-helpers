@@ -39,8 +39,6 @@ This will edit your `.gdbinit` to load the helpers.
 * `hier CLASS`.  Print the class hierarchy of a class, one line per
   base class.
 
-* `multi`.  Enable multi-inferior mode.
-
 ## New functions
 
 * `$_typeof(EXP)`.  Evaluates EXP and then returns a string
