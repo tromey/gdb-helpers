@@ -11,14 +11,13 @@ the right thing.)
 
 ## Installing
 
-I just put this in my ~/.gdbinit:
+The simplest way is to:
 
 ```
-python sys.path.insert(0, '/home/tromey/gdb/helpers')
-python import gdbhelpers
+make hack-gdbinit
 ```
 
-Here `helpers` is the directory where I did the `git clone`.
+This will edit your `.gdbinit` to load the helpers.
 
 ## Oddball Features:
 
