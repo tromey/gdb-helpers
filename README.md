@@ -39,6 +39,10 @@ This will edit your `.gdbinit` to load the helpers.
 * `hier CLASS`.  Print the class hierarchy of a class, one line per
   base class.
 
+* `preattach FILE`.  This is like `attach`, but it attaches to the
+  next instance of the program.  This relies on SystemTap to do its
+  magic.
+
 ## New functions
 
 * `$_python(STR)`.  Evaluate `STR` as a Python expression.  This is an

@@ -1,0 +1,34 @@
+#!/bin/stap -g
+
+# Usage: preattach.stp FILE
+# FILE is the name of a file to match.
+# It should appear as a substring at the end of the exec.
+
+global found = 0;
+global found_pid = -1;
+global sigstop = 19;
+
+probe begin {
+  // The way the python side is written right now, this
+  // don't do the right thing.
+  // printf("Start your program now\n");
+}
+
+probe kernel.trace("signal_deliver") {
+  if (pid() == found_pid && $sig == sigstop) {
+    printf("%d\n", pid());
+    exit();
+  }
+}
+
+probe kernel.trace("sched_process_exec") {
+  if (execname() == @1) {
+    // Work around a minor systemtap bug.
+    // It doesn't recognize "++found == 1" as a use of "found".
+    ++found;
+    if (found == 1) {
+      found_pid = pid();
+      raise(sigstop);
+    }
+  }
+}
