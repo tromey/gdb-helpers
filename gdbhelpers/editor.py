@@ -1,3 +1,4 @@
+import gdb
 import os
 
 if os.getenv("EMACS"):
@@ -6,3 +7,6 @@ if os.getenv("EMACS"):
     # See the "ecomm" command though.
     os.putenv("EDITOR", "emacsclient -n")
     os.putenv("BLOCKING_EDITOR", "emacsclient")
+    # At some point this stopped working automatically.
+    # Maybe because Emacs switched back to --fullname?
+    gdb.execute('set pagination off', to_string = True)
