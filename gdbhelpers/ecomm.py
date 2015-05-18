@@ -5,7 +5,11 @@ import tempfile
 import os
 
 class EComm(gdb.Command):
-    """Edit commands for a breakpoint and re-apply."""
+    """Edit commands for a breakpoint and re-apply.
+Usage:
+    ecomm NUM
+Edit the breakpoint commands for breakpoint NUM.
+When the editing is done, the commands are re-applied."""
 
     def __init__(self):
         super(EComm, self).__init__("ecomm", gdb.COMMAND_BREAKPOINTS,
