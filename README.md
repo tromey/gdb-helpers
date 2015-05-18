@@ -41,6 +41,10 @@ This will edit your `.gdbinit` to load the helpers.
 
 ## New functions
 
+* `$_python(STR)`.  Evaluate `STR` as a Python expression.  This is an
+  occasionally handy shortcut to use in place of a new `gdb.Function`
+  implementation.
+
 * `$_typeof(EXP)`.  Evaluates EXP and then returns a string
   representation of its dynamic type.  This is handy in conjunction
   with `$_regex` (distributed with gdb) in breakpoint conditions --
