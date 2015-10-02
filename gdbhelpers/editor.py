@@ -1,7 +1,7 @@
 import gdb
 import os
 
-if os.getenv("EMACS"):
+if os.getenv("INSIDE_EMACS"):
     # The blocking behavior of "edit" doesn't seem too useful,
     # especially when running inside Emacs, so this just disables it.
     # See the "ecomm" command though.
