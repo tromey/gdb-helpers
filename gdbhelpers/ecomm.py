@@ -20,7 +20,8 @@ When the editing is done, the commands are re-applied."""
             f.write('# Edit the commands, save, and exit the editor.\n')
             f.write('# You can simply clear the whole file to have no changes take effect.\n')
             f.write('commands ' + str(bp.number) + '\n')
-            f.write(bp.commands)
+            if bp.commands is not None:
+                f.write(bp.commands)
             f.write('end\n')
 
     def edit(self, filename):
