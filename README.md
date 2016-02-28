@@ -32,6 +32,10 @@ This will edit your `.gdbinit` to load the helpers.
   next instance of the program.  This relies on SystemTap to do its
   magic.
 
+* `set backtrace function`, `set backtrace filename`, and
+  `set backtrace argument` to colorize backtraces.  Also see
+  `info frame-filter`.
+
 ## New functions
 
 * `$_python(STR)`.  Evaluate `STR` as a Python expression.  This is an
