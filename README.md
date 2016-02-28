@@ -19,17 +19,6 @@ make hack-gdbinit
 
 This will edit your `.gdbinit` to load the helpers.
 
-## Oddball Features:
-
-* If you put `\E` into your `extended-prompt`, then when running gdb
-  in the shell, changes to the current location will be sent to a
-  running Emacs using `emacsclient`.  For best results you will also
-  want to `(setq server-raise-frame nil)` in Emacs.
-
-  This is useful if you have to run gdb from the shell for some
-  reason, and want see the sources, and don't want to use the TUI, and
-  gdb-gui fails due to an obscure bug on your machine.  Cough cough.
-
 ## New commands:
 
 * `ecomm N`.  Edit the commands for breakpoint N.  This writes the
@@ -63,3 +52,14 @@ This will edit your `.gdbinit` to load the helpers.
 
 * `$_var(NAME)`.  Return the value of a variable named NAME in the
   current frame.
+
+## Oddball Features:
+
+* If you put `\E` into your `extended-prompt`, then when running gdb
+  in the shell, changes to the current location will be sent to a
+  running Emacs using `emacsclient`.  For best results you will also
+  want to `(setq server-raise-frame nil)` in Emacs.
+
+  This is useful if you have to run gdb from the shell for some
+  reason, and want see the sources, and don't want to use the TUI, and
+  gdb-gui fails due to an obscure bug on your machine.  Cough cough.
