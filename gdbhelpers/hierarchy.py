@@ -10,8 +10,7 @@ class Hierarchy(gdb.Command):
                                         gdb.COMPLETE_SYMBOL)
 
     def print_hierarchy(self, typeobj, depth):
-        print(' ' * depth)
-        print(typeobj.name)
+        print(' ' * depth + typeobj.name)
         typeobj = typeobj.strip_typedefs()
         for field in typeobj.fields():
             if not field.is_base_class:
