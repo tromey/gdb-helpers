@@ -65,7 +65,7 @@ function_item = _Item("function")
 arg_item = _Item("argument")
 
 def colorize(item, text):
-    if type(text) != str or gdbhelpers.in_emacs():
+    if type(text) != str:
         return text
     esc = item.get_escape()
     if esc is None:
