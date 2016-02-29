@@ -1,5 +1,6 @@
 import gdb
 import gdb.prompt
+import gdbhelpers
 import os
 
 _last_command = None
@@ -7,7 +8,7 @@ _last_command = None
 def emacs_updater(ignore):
     "Automatically update Emacs with the current location."
     # Don't bother if inside emacs.
-    if not os.getenv("EMACS"):
+    if not gdbhelpers.in_emacs():
         try:
             frame = gdb.selected_frame()
         except:

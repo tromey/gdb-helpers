@@ -1,5 +1,12 @@
 # gdbhelpers module
 
+import os
+
+def in_emacs():
+    if os.getenv("INSIDE_EMACS"):
+        return True
+    return False
+
 import gdbhelpers.editor
 import gdbhelpers.upvar
 import gdbhelpers.typeof

@@ -1,7 +1,8 @@
 import gdb
+import gdbhelpers
 import os
 
-if os.getenv("INSIDE_EMACS"):
+if gdbhelpers.in_emacs():
     # The blocking behavior of "edit" doesn't seem too useful,
     # especially when running inside Emacs, so this just disables it.
     # See the "ecomm" command though.
