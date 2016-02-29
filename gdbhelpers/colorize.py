@@ -125,3 +125,9 @@ class ColorFilter(object):
         return map(ColorDecorator, frame_iter)
 
 ColorFilter()
+
+# Defaults.
+gdb.execute("set backtrace argument foreground red", to_string = True)
+gdb.execute("set backtrace function foreground blue", to_string = True)
+gdb.execute("set backtrace function intensity bold", to_string = True)
+gdb.execute("set backtrace filename foreground cyan", to_string = True)
