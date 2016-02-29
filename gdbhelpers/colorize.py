@@ -1,5 +1,4 @@
 import gdb
-import gdbhelpers
 from gdb.FrameDecorator import FrameDecorator
 
 _colors = ["none", "black", "red", "green", "yellow", "blue", "magenta",
