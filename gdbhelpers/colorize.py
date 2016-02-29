@@ -1,4 +1,5 @@
 import gdb
+import gdbhelpers
 from gdb.FrameDecorator import FrameDecorator
 
 _colors = ["none", "black", "red", "green", "yellow", "blue", "magenta",
@@ -64,7 +65,7 @@ function_item = _Item("function")
 arg_item = _Item("argument")
 
 def colorize(item, text):
-    if type(text) != str:
+    if type(text) != str or gdbhelpers.in_emacs():
         return text
     esc = item.get_escape()
     if esc is None:
