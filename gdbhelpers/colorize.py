@@ -116,7 +116,8 @@ class ColorDecorator(FrameDecorator):
 class ColorFilter(object):
     def __init__(self):
         self.name = "colorize"
-        self.priority = 100
+        # Give this a low priority so it runs last.
+        self.priority = 0
         self.enabled = True
         gdb.frame_filters[self.name] = self
 
