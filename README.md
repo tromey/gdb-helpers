@@ -1,7 +1,8 @@
 ## Overview
 
-This adds some new commands and convenience functions to gdb.
-I've found these useful while hacking on firefox.
+This adds some new commands and convenience functions to gdb.  It also
+changes some defaults to be more sensible.  I've found this useful
+while hacking on firefox.
 
 Also, for Emacs users, this arranges to set `EDITOR` to `emacsclient -n`
 when gdb is running inside Emacs, so that the `edit` command will contact
