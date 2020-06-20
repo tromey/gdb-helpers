@@ -15,7 +15,6 @@ import gdbhelpers.ecomm
 import gdbhelpers.preattach
 import gdbhelpers.python
 import gdbhelpers.emacs
-import gdbhelpers.colorize
 
 # These are cases where gdb's default ought to change.
 import gdb
