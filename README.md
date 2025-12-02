@@ -20,6 +20,11 @@ make hack-gdbinit
 
 This will edit your `.gdbinit` to load the helpers.
 
+## New TUI windows:
+
+* The `stack` window shows the stack in a basic (for now) way.
+  You can easily switch to this with `layout stack`.
+
 ## New commands:
 
 * `ecomm N`.  Edit the commands for breakpoint N.  This writes the
