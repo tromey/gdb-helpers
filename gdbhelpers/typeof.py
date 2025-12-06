@@ -1,7 +1,6 @@
 # typeof
 
 import gdb
-from gdb.FrameIterator import FrameIterator
 
 
 class Typeof(gdb.Function):

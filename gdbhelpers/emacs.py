@@ -3,7 +3,7 @@ import os
 import gdb
 import gdb.prompt
 
-import gdbhelpers
+from gdbhelpers.editor import in_emacs
 
 _last_command = None
 
@@ -11,10 +11,10 @@ _last_command = None
 def emacs_updater(ignore):
     "Automatically update Emacs with the current location."
     # Don't bother if inside emacs.
-    if not gdbhelpers.in_emacs():
+    if not in_emacs():
         try:
             frame = gdb.selected_frame()
-        except:
+        except Exception:
             frame = None
         if frame and frame.find_sal():
             sal = frame.find_sal()

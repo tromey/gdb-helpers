@@ -1,15 +1,5 @@
 # gdbhelpers module
 
-import os
-
-
-def in_emacs():
-    if os.getenv("INSIDE_EMACS"):
-        return True
-    return False
-
-
-# These are cases where gdb's default ought to change.
 import gdb
 
 import gdbhelpers.ecomm
@@ -20,7 +10,7 @@ import gdbhelpers.preattach
 import gdbhelpers.python
 import gdbhelpers.tuistack
 import gdbhelpers.typeof
-import gdbhelpers.upvar
+import gdbhelpers.upvar  # noqa: F401
 
 gdb.execute("set print pretty on")
 gdb.execute("set print object on")
