@@ -9,18 +9,18 @@ def in_emacs():
     return False
 
 
-import gdbhelpers.editor
-import gdbhelpers.upvar
-import gdbhelpers.typeof
-import gdbhelpers.hierarchy
-import gdbhelpers.ecomm
-import gdbhelpers.preattach
-import gdbhelpers.python
-import gdbhelpers.emacs
-import gdbhelpers.tuistack
-
 # These are cases where gdb's default ought to change.
 import gdb
+
+import gdbhelpers.ecomm
+import gdbhelpers.editor
+import gdbhelpers.emacs
+import gdbhelpers.hierarchy
+import gdbhelpers.preattach
+import gdbhelpers.python
+import gdbhelpers.tuistack
+import gdbhelpers.typeof
+import gdbhelpers.upvar
 
 gdb.execute("set print pretty on")
 gdb.execute("set print object on")

@@ -1,8 +1,9 @@
 # preattach
 
-import gdb
 import os
 import subprocess
+
+import gdb
 
 
 class Preattach(gdb.Command):

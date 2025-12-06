@@ -1,7 +1,9 @@
+import os
+
 import gdb
 import gdb.prompt
+
 import gdbhelpers
-import os
 
 _last_command = None
 

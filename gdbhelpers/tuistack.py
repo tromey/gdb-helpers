@@ -1,6 +1,6 @@
-import gdb
 import os
 
+import gdb
 from gdb.frames import frame_iterator
 
 

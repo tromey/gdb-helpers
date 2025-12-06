@@ -1,8 +1,9 @@
 # ecomm
 
-import gdb
-import tempfile
 import os
+import tempfile
+
+import gdb
 
 
 class EComm(gdb.Command):

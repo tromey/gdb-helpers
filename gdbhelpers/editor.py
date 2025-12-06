@@ -1,6 +1,8 @@
-import gdb
-import gdbhelpers
 import os
+
+import gdb
+
+import gdbhelpers
 
 if gdbhelpers.in_emacs():
     # The blocking behavior of "edit" doesn't seem too useful,
