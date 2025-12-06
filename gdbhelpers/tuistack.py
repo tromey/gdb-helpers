@@ -4,6 +4,12 @@ import gdb
 from gdb.frames import frame_iterator
 
 
+def style(name, text):
+    if hasattr(gdb, Style):
+        return gdb.Style(name).apply(text)
+    return text
+
+
 class _TuiStack:
     def __init__(self, win):
         self._win = win
@@ -46,8 +52,6 @@ class _TuiStack:
         self._thread = gdb.selected_thread()
         self._height = self._win.height
 
-        fn_style = gdb.Style("function")
-        file_style = gdb.Style("filename")
         line_count = 0
         output = ""
         for frame in self._get_frames(newest):
@@ -66,13 +70,13 @@ class _TuiStack:
 
             fn = frame.function()
             if fn is not None:
-                output += fn_style.apply(fn)
+                output += style("function", fn)
 
             fname = frame.filename()
             lno = frame.line()
             if fname is not None and lno is not None:
                 output += " at "
-                output += file_style.apply(os.path.basename(fname))
+                output += style("filename", os.path.basename(fname))
                 output += ":" + str(lno)
 
             output += "\n"
