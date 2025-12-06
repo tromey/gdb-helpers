@@ -3,6 +3,7 @@ import os
 
 from gdb.frames import frame_iterator
 
+
 class _TuiStack:
     def __init__(self, win):
         self._win = win
@@ -33,10 +34,15 @@ class _TuiStack:
             newest = None
             selected = None
 
-        if self._newest == newest and self._selected == selected and self._thread == gdb.selected_thread() and self._height == self._win.height:
+        if (
+            self._newest == newest
+            and self._selected == selected
+            and self._thread == gdb.selected_thread()
+            and self._height == self._win.height
+        ):
             return
         self._newest = newest
-        self._selected = selected        
+        self._selected = selected
         self._thread = gdb.selected_thread()
         self._height = self._win.height
 
@@ -74,7 +80,6 @@ class _TuiStack:
 
         self._win.write(output, full_window=True)
 
-
     def vscroll(self, num):
         save = self._start
         self._start += num
@@ -84,6 +89,7 @@ class _TuiStack:
             # Force a re-render, at least if there's a thread.
             self._thread = None
             self.render()
+
 
 gdb.register_window_type("stack", _TuiStack)
 

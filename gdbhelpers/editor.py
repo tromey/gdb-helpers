@@ -10,4 +10,4 @@ if gdbhelpers.in_emacs():
     os.environ["BLOCKING_EDITOR"] = "emacsclient"
     # At some point this stopped working automatically.
     # Maybe because Emacs switched back to --fullname?
-    gdb.execute('set pagination off', to_string = True)
+    gdb.execute("set pagination off", to_string=True)

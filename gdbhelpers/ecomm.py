@@ -4,25 +4,27 @@ import gdb
 import tempfile
 import os
 
+
 class EComm(gdb.Command):
     """Edit commands for a breakpoint and re-apply.
-Usage:
-    ecomm NUM
-Edit the breakpoint commands for breakpoint NUM.
-When the editing is done, the commands are re-applied."""
+    Usage:
+        ecomm NUM
+    Edit the breakpoint commands for breakpoint NUM.
+    When the editing is done, the commands are re-applied."""
 
     def __init__(self):
-        super(EComm, self).__init__("ecomm", gdb.COMMAND_BREAKPOINTS,
-                                    gdb.COMPLETE_NONE)
+        super(EComm, self).__init__("ecomm", gdb.COMMAND_BREAKPOINTS, gdb.COMPLETE_NONE)
 
     def twrite(self, filename, bp):
-        with open(filename, 'w') as f:
-            f.write('# Edit the commands, save, and exit the editor.\n')
-            f.write('# You can simply clear the whole file to have no changes take effect.\n')
-            f.write('commands ' + str(bp.number) + '\n')
+        with open(filename, "w") as f:
+            f.write("# Edit the commands, save, and exit the editor.\n")
+            f.write(
+                "# You can simply clear the whole file to have no changes take effect.\n"
+            )
+            f.write("commands " + str(bp.number) + "\n")
             if bp.commands is not None:
                 f.write(bp.commands)
-            f.write('end\n')
+            f.write("end\n")
 
     def edit(self, filename):
         ed = os.getenv("BLOCKING_EDITOR")
@@ -31,7 +33,7 @@ When the editing is done, the commands are re-applied."""
         os.system(ed + " " + filename)
 
     def reapply(self, filename):
-        gdb.execute('source ' + filename)
+        gdb.execute("source " + filename)
 
     def edit_and_reapply(self, bp):
         fd, filename = tempfile.mkstemp()
@@ -50,5 +52,6 @@ When the editing is done, the commands are re-applied."""
                 self.edit_and_reapply(bp)
                 return
         raise gdb.GdbError("breakpoint " + arg + " not found")
+
 
 EComm()

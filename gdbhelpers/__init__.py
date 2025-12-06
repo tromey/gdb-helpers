@@ -2,10 +2,12 @@
 
 import os
 
+
 def in_emacs():
     if os.getenv("INSIDE_EMACS"):
         return True
     return False
+
 
 import gdbhelpers.editor
 import gdbhelpers.upvar
@@ -19,6 +21,7 @@ import gdbhelpers.tuistack
 
 # These are cases where gdb's default ought to change.
 import gdb
+
 gdb.execute("set print pretty on")
 gdb.execute("set print object on")
 gdb.execute("set breakpoint pending on")
